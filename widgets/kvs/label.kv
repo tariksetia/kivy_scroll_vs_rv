@@ -1,0 +1,148 @@
+#:import utils kivy.utils
+<FieldName>:
+    font_size: 24
+    
+    color: utils.get_color_from_hex("#757BA0")
+    size_hint_y: None
+    text_size: self.width, None
+    height: self.texture_size[1]
+    halign: "left"
+    bold: True
+    valign: "middle"
+
+<FieldValue>:
+    font_size: 24
+    
+    color: utils.get_color_from_hex("#0B145A")
+    size_hint_y: None
+    text_size: self.width, None
+    height: self.texture_size[1]
+    halign: "left"
+    bold: True
+    valign: "middle"
+
+<FieldValueWrappable>
+    size_hint_y: None
+    text_size: self.width, None
+    height: self.texture_size[1]
+    font_size: 24
+    
+    color: utils.get_color_from_hex("#0B145A")
+    halign: "left"
+    bold: True
+    valign: "middle"
+
+<BorderLabel>:
+    font_size: 24
+    
+    color: utils.get_color_from_hex("#4b5ace")
+    size_hint: (None,None)
+    width: self.texture_size[0] + dp(10)
+    height: self.texture_size[1] + dp(7)
+    halign: "center"
+    bold: True
+    valign: "middle"
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex("#e8e8ef")
+        Line:
+            width: 3.1
+            rectangle: self.x, self.y, self.width, self.height
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<BackgroundLabel>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex("#fc960c")
+        Line:
+            width: 2.5
+            rectangle: self.x, self.y, self.width, self.height
+        Color:
+            rgba: utils.get_color_from_hex("#fc960c")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    font_size: 24
+    
+    color: utils.get_color_from_hex("#ffffff")
+    size_hint: (None,None)
+    width: self.texture_size[0] + dp(10)
+    height: self.texture_size[1] + dp(7)
+    halign: "center"
+    bold: True
+    valign: "middle"
+
+<AlertStatusLabel>:
+    canvas.before:
+        Color:
+            rgba: root.get_color()
+        Line:
+            width: 2.5
+            rectangle: self.x, self.y, self.width, self.height
+        Color:
+            rgba: root.get_color()
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<DashboardCard>
+    cols: 1
+    padding:40,40,40,40
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex("#e8e8ef")
+        Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        
+    Grid:
+        cols:2
+        Label:
+            size_hint: None, None
+            size: self.texture_size
+            text_size: self.width, None
+            halign: "left"
+            valign: "middle"
+            markup: True
+            text: "%s "%(icon(root.get_status_icon(root.status), 32, root.get_color_for_status(root.status), 'fontawesome-FontGroup.SOLID'))
+        Label:
+            font_size: dp(16)
+            color: utils.get_color_from_hex("#777CA3")
+            size_hint_y: None
+            size: self.texture_size
+            text_size: self.width, None
+            
+            halign: "left"
+            valign: "middle"
+            text: root.title
+  
+    Label:
+        font_size: dp(24)
+        color: utils.get_color_from_hex("#0A145A")
+        size_hint_y: None
+        size: self.texture_size
+        text_size: self.width, None
+        halign: "left"
+        valign: "middle"
+        text: root.heading
+
+
+    Label:
+        id:  primary_text
+        color: utils.get_color_from_hex(root.get_label_color(root.status))
+        font_size: dp(14)
+        size_hint_y: None
+        size: self.texture_size
+        text_size: self.width, None
+        halign: "left"
+        valign: "middle"
+        text: root.primary_text

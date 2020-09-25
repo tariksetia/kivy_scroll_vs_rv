@@ -1,0 +1,39 @@
+<HeartbeatList>:
+    cols:1
+    GridLayout:
+        size_hint_y: 0.2
+        cols:2
+        Label:
+            color:(0,0,0,1)
+            text:" ScrollView + Grid"
+            font_size: 48
+        Label:
+            color:(0,0,0,1)
+            text:" RecycleView + RecycleGridLayout"
+            font_size: 48
+            
+    
+    GridLayout:
+        cols:2
+        ScrollView:
+            GridLayout:
+                cols: 1
+                padding: 50,50,50,50
+        
+                size_hint: 1, None
+                height: self.minimum_height
+                id: hbeat_grid_list
+                
+                    
+        GridLayout:
+            cols: 1
+            padding: 50,50,50,50
+            RecycleView:
+                id: hbeat_rv_list
+                viewclass: 'HeartbeatCard'
+                RecycleGridLayout:
+                    cols:1
+                    default_size_hint: 1, None
+                    size_hint:1 ,None
+                    height: self.minimum_height
+                    spacing: dp(2)
