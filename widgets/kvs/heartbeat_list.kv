@@ -80,15 +80,13 @@
                 id: hbeat_grid_list
                 
                     
-        GridLayout:
-            cols: 1
-            padding: 50,50,50,50
-            RecycleView:
-                id: hbeat_rv_list
-                viewclass: 'HeartbeatCard'
-                RecycleGridLayout:
-                    cols:1
-                    default_size_hint: 1, None
-                    size_hint:1 ,None
-                    height: self.minimum_height +200
-                    spacing: dp(2)
+    
+        RecycleView:
+            id: hbeat_rv_list
+            viewclass: 'HeartbeatCard'
+            RecycleGridLayout:
+                cols:1
+                default_size_hint: 1, None
+                size_hint:1 ,None
+                height: self.minimum_height +200
+                spacing: dp(2)
