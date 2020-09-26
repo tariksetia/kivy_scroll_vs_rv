@@ -1,3 +1,58 @@
+#:import utils kivy.utils
+
+<Grid@GridLayout>:
+    size_hint_y: None
+    height: self.minimum_height
+
+    
+
+<HeartbeatCard>:
+    cols:1
+    padding:40,40,40,40
+    size_hint_y: None
+    height: self.minimum_height +200
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex("#F4F5F8")
+        Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+    Grid:
+        spacing: 10
+        rows: 1
+        BackgroundLabel:
+            text: " HODOR"
+        BorderLabel:
+            text: "DUMBLEDORE"
+        BorderLabel:
+            text: "SIRIUS BLACK"
+    Grid:
+        rows:1
+        Grid:
+            cols:1
+            FieldName:
+                text: "Sent"
+            FieldValue:
+                id: sent_time
+        Grid:
+            cols:1
+            FieldName:
+                text: "Expires"
+            FieldValue:
+                id: expiry_time
+        Grid:
+            cols:1
+            FieldName:
+                text: "Sender"
+            FieldValue:
+                id: sender
+        Grid:
+            cols:1
+            FieldName:
+                text: "ID"
+            FieldValue:
+                id: alert_id
+
 <HeartbeatList>:
     cols:1
     GridLayout:
@@ -35,5 +90,5 @@
                     cols:1
                     default_size_hint: 1, None
                     size_hint:1 ,None
-                    height: self.minimum_height
+                    height: self.minimum_height +200
                     spacing: dp(2)
